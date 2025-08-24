@@ -19,6 +19,20 @@ vim.keymap.set('n', '<S-Tab>', ':Tabprev<CR>', { silent = true })
 -- Clear search highlighting
 vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { silent = true })
 
+-- -- Keep cursor centered when scrolling
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { silent = true });
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { silent = true });
+-- vim.keymap.set('n', '<C-f>', '<C-f>zz', { silent = true });
+-- vim.keymap.set('n', '<C-b>', '<C-b>zz', { silent = true });
+
+-- NORMAL MODE: keep cursor in place after search
+vim.keymap.set('n', '*', '*N', { silent = true }) -- highlight word under cursor, stay on it
+vim.keymap.set('n', '#', '#N', { silent = true }) -- same for backwards search
+
+-- VISUAL MODE: search for selection and reselect
+vim.keymap.set('v', '*', '"vy/<C-r>v<CR>gv', { silent = true }) -- search forward for visual selection, reselect it
+vim.keymap.set('v', '#', '"vy?<C-r>v<CR>gv', { silent = true }) -- search backward for visual selection, reselect it
+
 -- Better Navigation
 local directions = {
   ['<C-j>'] = 'workbench.action.navigateDown',
