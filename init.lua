@@ -33,6 +33,9 @@ vim.keymap.set('n', '#', '#N', { silent = true }) -- same for backwards search
 vim.keymap.set('v', '*', '"vy/<C-r>v<CR>gv', { silent = true }) -- search forward for visual selection, reselect it
 vim.keymap.set('v', '#', '"vy?<C-r>v<CR>gv', { silent = true }) -- search backward for visual selection, reselect it
 
+-- Yank from first to last non-blank character
+vim.keymap.set('n', 'Y', '^yg_');
+
 -- Better Navigation
 local directions = {
   ['<C-j>'] = 'workbench.action.navigateDown',
